@@ -4,19 +4,11 @@
 		<title>Calcul de portée du TéléPort</title>
 		<script>
 			function calculs() {
-				piTotaux = document.mh.piTotaux.value;
 				vue = document.mh.vue.value;
+				piTotaux = document.mh.piTotaux.value;
 				document.getElementById("distance").innerHTML = "&nbsp;";
 				document.getElementById("porteeH").innerHTML = "&emsp;&emsp;";
 				document.getElementById("porteeV").innerHTML = "&nbsp;";
-
-				mm = document.mh.mm.value;
-				mmPBonus = document.mh.mmPBonus.value;
-				document.getElementById("mmBonus").innerHTML = "&nbsp;";
-				document.getElementById("aDistance").innerHTML = "&nbsp;";
-				document.getElementById("aPorteeH").innerHTML = "&emsp;&emsp;";
-				document.getElementById("aPorteeV").innerHTML = "&nbsp;";
-
 				if (vue != "" && vue == parseInt(vue) && piTotaux != "" && piTotaux == parseInt(piTotaux)) {
 					distance = Math.ceil((Math.sqrt(19 + 8 * (piTotaux / 5 + 3)) - 7) / 2);
 					porteeH = distance + 20 + vue;
@@ -26,13 +18,18 @@
 					document.getElementById("porteeV").innerHTML = porteeV;
 				}
 
+				mm = document.mh.mm.value;
+				mmPBonus = document.mh.mmPBonus.value;
+				document.getElementById("mmBonus").innerHTML = "&nbsp;";
+				document.getElementById("aDistance").innerHTML = "&nbsp;";
+				document.getElementById("aPorteeH").innerHTML = "&emsp;&emsp;";
+				document.getElementById("aPorteeV").innerHTML = "&nbsp;";
 				if (mm != "" && mm == parseInt(mm) && mmPBonus != "") {
+					mmBonus = "";
 					if (mmPBonus.endsWith("%") && (mmPBonus.substr(0, mmPBonus.length - 1) == parseInt(mmPBonus.substr(0, mmPBonus.length - 1)))) {
 						mmBonus = Math.floor((1 + mmPBonus.substr(0, mmPBonus.length - 1) / 100) * mm);
 					} else if (mmPBonus == parseInt(mmPBonus)) {
 						mmBonus = mm + mmPBonus;
-					} else {
-						mmBonus = "";
 					}
 					if (vue != "" && vue == parseInt(vue) && mmBonus != "") {
 						aDistance = Math.ceil((Math.sqrt(19 + 8 * (mmBonus / 5 + 3)) - 7) / 2);
