@@ -9,7 +9,7 @@
 				document.getElementById("distance").innerHTML = "&nbsp;";
 				document.getElementById("porteeH").innerHTML = "&emsp;&emsp;";
 				document.getElementById("porteeV").innerHTML = "&nbsp;";
-				if (vue != "" && vue == parseInt(vue) && piTotaux != "" && piTotaux == parseInt(piTotaux)) {
+				if (vue != "" && piTotaux != "") {
 					distance = Math.ceil((Math.sqrt(19 + 8 * (piTotaux / 5 + 3)) - 7) / 2);
 					porteeH = distance + 20 + vue;
 					porteeV = Math.floor(distance / 3 + 3);
@@ -24,14 +24,14 @@
 				document.getElementById("aDistance").innerHTML = "&nbsp;";
 				document.getElementById("aPorteeH").innerHTML = "&emsp;&emsp;";
 				document.getElementById("aPorteeV").innerHTML = "&nbsp;";
-				if (mm != "" && mm == parseInt(mm) && mmPBonus != "") {
+				if (mm != "" && mmPBonus != "") {
 					mmBonus = 0;
 					if (mmPBonus.endsWith("%") && (mmPBonus.substr(0, mmPBonus.length - 1) == parseInt(mmPBonus.substr(0, mmPBonus.length - 1)))) {
 						mmBonus = Math.floor((1 + mmPBonus.substr(0, mmPBonus.length - 1) / 100) * mm);
 					} else if (mmPBonus == parseInt(mmPBonus)) {
-						mmBonus = (mm + mmPBonus);
+						mmBonus = mm + mmPBonus;
 					}
-					if (vue != "" && vue == parseInt(vue) && mmBonus != "") {
+					if (vue != "" && mmBonus != "") {
 						aDistance = Math.ceil((Math.sqrt(19 + 8 * (mmBonus / 5 + 3)) - 7) / 2);
 						aPorteeH = aDistance + 20 + vue;
 						aPorteeV = Math.floor(aDistance / 3 + 3);
@@ -49,10 +49,10 @@
 			<font>
 				<table>
 					<tr>
-						<td>PI totaux = <input type=text name=piTotaux value="16110" size=3 onChange="calculs()"></td>
+						<td>PI totaux = <input type=number name=piTotaux value=16110 size=3 onChange="calculs()"></td>
 					</tr>
 					<tr>
-						<td>Vue (sans BM) = <input type=text name=vue value="45" size=1 onChange="calculs()"></td>
+						<td>Vue (sans BM) = <input type=number name=vue value=45 size=1 onChange="calculs()"></td>
 					</tr>
 					<tr>
 						<td>Distance = <span id=distance></span></td>
@@ -67,7 +67,7 @@
 						<td>... Anciennement :</td>
 					</tr>
 					<tr>
-						<td>MM = <input type=text name=mm value="12621" size=3 onChange="calculs()"> + <input type=text name=mmPBonus value="76%" size=3 onChange="calculs()"> = <span id=mmBonus></span></td>
+						<td>MM = <input type=number name=mm value=12621 size=3 onChange="calculs()"> + <input type=text name=mmPBonus value="76%" size=3 onChange="calculs()"> = <span id=mmBonus></span></td>
 					</tr>
 					<tr>
 						<td>Distance = <span id=aDistance></span></td>
