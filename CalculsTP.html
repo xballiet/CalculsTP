@@ -29,7 +29,7 @@
 					if (mmPBonus.endsWith("%") && (mmPBonus.substr(0, mmPBonus.length - 1) == parseInt(mmPBonus.substr(0, mmPBonus.length - 1)))) {
 						mmBonus = Math.floor((1 + mmPBonus.substr(0, mmPBonus.length - 1) / 100) * mm);
 					} else if (mmPBonus == parseInt(mmPBonus)) {
-						mmBonus = mm + parseInt(mmPBonus);
+						mmBonus = parseInt(mm) + parseInt(mmPBonus);
 					}
 					if (vue != "" && mmBonus != "") {
 						aDistance = Math.ceil((Math.sqrt(19 + 8 * (mmBonus / 5 + 3)) - 7) / 2);
@@ -49,10 +49,10 @@
 			<font>
 				<table>
 					<tr>
-						<td>PI totaux = <input type=number name=piTotaux value=16110 style="width: 7em" onChange="calculs()"></td>
+						<td>PI totaux = <input type=number name=piTotaux value=16110 style="width: 5.8em" onChange="calculs()"></td>
 					</tr>
 					<tr>
-						<td>Vue (sans BM) = <input type=number name=vue value=45 style="width: 7em" onChange="calculs()"></td>
+						<td>Vue (sans BM) = <input type=number name=vue value=45 style="width: 3em" onChange="calculs()"></td>
 					</tr>
 					<tr>
 						<td>Distance = <span id=distance></span></td>
@@ -67,7 +67,7 @@
 						<td>... Anciennement :</td>
 					</tr>
 					<tr>
-						<td>MM = <input type=number name=mm value=12621 style="width: 7em" onChange="calculs()"> + <input type=text name=mmPBonus value="76%" size=2 onChange="calculs()"> = <span id=mmBonus></span></td>
+						<td>MM = <input type=number name=mm value=12621 style="width: 5.8em" onChange="calculs()"> + <input type=text name=mmPBonus value="76%" size=2 onChange="calculs()"> = <span id=mmBonus></span></td>
 					</tr>
 					<tr>
 						<td>Distance = <span id=aDistance></span></td>
