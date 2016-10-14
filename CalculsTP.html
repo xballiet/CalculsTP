@@ -25,11 +25,11 @@
 				document.getElementById("aPorteeH").innerHTML = "&emsp;&emsp;";
 				document.getElementById("aPorteeV").innerHTML = "&nbsp;";
 				if (mm != "" && mm == parseInt(mm) && mmPBonus != "") {
-					mmBonus = "";
+					mmBonus = 0;
 					if (mmPBonus.endsWith("%") && (mmPBonus.substr(0, mmPBonus.length - 1) == parseInt(mmPBonus.substr(0, mmPBonus.length - 1)))) {
 						mmBonus = Math.floor((1 + mmPBonus.substr(0, mmPBonus.length - 1) / 100) * mm);
 					} else if (mmPBonus == parseInt(mmPBonus)) {
-						mmBonus = mm + 0 + mmPBonus;
+						mmBonus += mm + mmPBonus;
 					}
 					if (vue != "" && vue == parseInt(vue) && mmBonus != "") {
 						aDistance = Math.ceil((Math.sqrt(19 + 8 * (mmBonus / 5 + 3)) - 7) / 2);
