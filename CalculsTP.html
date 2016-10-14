@@ -11,7 +11,7 @@
 				document.getElementById("porteeV").innerHTML = "&nbsp;";
 				if (vue != "" && piTotaux != "") {
 					distance = Math.ceil((Math.sqrt(19 + 8 * (piTotaux / 5 + 3)) - 7) / 2);
-					porteeH = distance + 20 + vue;
+					porteeH = distance + 20 + parseInt(vue);
 					porteeV = Math.floor(distance / 3 + 3);
 					document.getElementById("distance").innerHTML = distance;
 					document.getElementById("porteeH").innerHTML = porteeH;
@@ -33,7 +33,7 @@
 					}
 					if (vue != "" && mmBonus != "") {
 						aDistance = Math.ceil((Math.sqrt(19 + 8 * (mmBonus / 5 + 3)) - 7) / 2);
-						aPorteeH = aDistance + 20 + vue;
+						aPorteeH = aDistance + 20 + parseInt(vue);
 						aPorteeV = Math.floor(aDistance / 3 + 3);
 						document.getElementById("mmBonus").innerHTML = mmBonus;
 						document.getElementById("aDistance").innerHTML = aDistance;
