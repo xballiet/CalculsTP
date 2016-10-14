@@ -29,7 +29,7 @@
 					if (mmPBonus.endsWith("%") && (mmPBonus.substr(0, mmPBonus.length - 1) == parseInt(mmPBonus.substr(0, mmPBonus.length - 1)))) {
 						mmBonus = Math.floor((1 + mmPBonus.substr(0, mmPBonus.length - 1) / 100) * mm);
 					} else if (mmPBonus == parseInt(mmPBonus)) {
-						mmBonus = mm + parseInt(mmPBonus);
+						mmBonus = parseInt(mmPBonus) + mm;
 					}
 					if (vue != "" && mmBonus != "") {
 						aDistance = Math.ceil((Math.sqrt(19 + 8 * (mmBonus / 5 + 3)) - 7) / 2);
@@ -49,7 +49,7 @@
 			<font>
 				<table>
 					<tr>
-						<td>PI totaux = <input type=number name=piTotaux value=16110 onChange="calculs()"></td>
+						<td>PI totaux = <input type=number name=piTotaux value=16110 size=1 onChange="calculs()"></td>
 					</tr>
 					<tr>
 						<td>Vue (sans BM) = <input type=number name=vue value=45 size=1 onChange="calculs()"></td>
