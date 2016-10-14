@@ -29,7 +29,7 @@
 					if (mmPBonus.endsWith("%") && (mmPBonus.substr(0, mmPBonus.length - 1) == parseInt(mmPBonus.substr(0, mmPBonus.length - 1)))) {
 						mmBonus = Math.floor((1 + mmPBonus.substr(0, mmPBonus.length - 1) / 100) * mm);
 					} else if (mmPBonus == parseInt(mmPBonus)) {
-						mmBonus = 0 + mm + mmPBonus;
+						mmBonus = mm + 0 + mmPBonus;
 					}
 					if (vue != "" && vue == parseInt(vue) && mmBonus != "") {
 						aDistance = Math.ceil((Math.sqrt(19 + 8 * (mmBonus / 5 + 3)) - 7) / 2);
