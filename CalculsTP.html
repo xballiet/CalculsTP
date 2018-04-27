@@ -1,8 +1,16 @@
-﻿<html>
+﻿<!DOCTYPE html>
+<html>
 	<head>
 		<link rel="shortcut icon" type="image/png" href="https://xballiet.github.io/ImagesMH/favicon.png" />
 		<title>Calcul de portée du TéléPort</title>
 		<script>
+			function toggleDiv() {
+				if (document.getElementById("avant").style.display == "none") {
+					document.getElementById("avant").style.display = "block";
+				} else {
+					document.getElementById("avant").style.display = "none";
+				}
+			}
 			function calculs() {
 				vue = document.mh.vue.value;
 				piTotaux = document.mh.piTotaux.value;
@@ -17,7 +25,6 @@
 					document.getElementById("porteeH").innerHTML = porteeH;
 					document.getElementById("porteeV").innerHTML = porteeV;
 				}
-
 				mm = document.mh.mm.value;
 				mmPBonus = document.mh.mmPBonus.value;
 				document.getElementById("mmBonus").innerHTML = "&nbsp;";
@@ -49,7 +56,7 @@
 			<font>
 				<table>
 					<tr>
-						<td>PI totaux (définitifs)</td><td> = <input type=number name=piTotaux value=18290 style="width: 5.8em" onChange="calculs()"></td>
+						<td>PI totaux</td><td> = <input type=number name=piTotaux value=18290 style="width: 5.8em" onChange="calculs()"></td>
 					</tr>
 					<tr>
 						<td>Vue (sans BM)</td><td> = <input type=number name=vue value=49 style="width: 3em" onChange="calculs()"></td>
@@ -60,24 +67,24 @@
 					<tr>
 						<td>Portée horizontale</td><td> = <span id=porteeH></span> et portée verticale = <span id=porteeV></span></td>
 					</tr>
-					<tr>
-						<td colspan=2>&nbsp;</td>
-					</tr>
-					<tr>
-						<td colspan=2>... Anciennement :</td>
-					</tr>
-					<tr>
-						<td>MM</td><td> = <input type=number name=mm value=13817 style="width: 5.8em" onChange="calculs()"> + <input type=text name=mmPBonus value="38%" size=2 onChange="calculs()"> = <span id=mmBonus></span></td>
-					</tr>
-					<tr>
-						<td>Distance</td><td> = <span id=aDistance></span></td>
-					</tr>
-					<tr>
-						<td>Portée horizontale</td><td> = <span id=aPorteeH></span> et portée verticale = <span id=aPorteeV></span></td>
-					</tr>
 				</table>
+				<br/>
+				<a onmousedown="toggleDiv()" style="color: black; text-decoration: none">... Avant</a>
+				<div id=avant style="display: none">
+					<table>
+						<tr>
+							<td>MM</td><td> = <input type=number name=mm value=13817 style="width: 5.8em" onChange="calculs()"> + <input type=text name=mmPBonus value="38%" size=2 onChange="calculs()"> = <span id=mmBonus></span></td>
+						</tr>
+						<tr>
+							<td>Distance</td><td> = <span id=aDistance></span></td>
+						</tr>
+						<tr>
+							<td>Portée horizontale</td><td> = <span id=aPorteeH></span> et portée verticale = <span id=aPorteeV></span></td>
+						</tr>
+					</table>
+				</div>
 			</font>
 		</form>
+		<script>calculs();</script>
 	</body>
-	<script>calculs();</script>
 </html>
